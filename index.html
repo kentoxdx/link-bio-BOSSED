@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="th" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOSSCODE - Portfolio & Links</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        line: '#06C755',
+                        facebook: '#1877F2',
+                        youtube: '#FF0000',
+                        tiktok: '#000000',
+                        instagram: '#E4405F',
+                        github: '#24292E'
+                    },
+                    fontFamily: {
+                        sans: ['Prompt', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Prompt & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Prompt', 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .card-hover {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.08);
+        }
+        .dark .card-hover:hover {
+            box-shadow: 0 8px 20px -4px rgba(255, 255, 255, 0.05);
+        }
+
+        /* Instagram Gradient Icon Background */
+        .ig-bg {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+        }
+
+        /* Toast notification styling */
+        #toast {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-[#121212] dark:text-gray-100 min-h-screen flex flex-col justify-between selection:bg-gray-200 dark:selection:bg-gray-800">
+
+    <header class="max-w-2xl w-full mx-auto px-4 pt-6 pb-2 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="#" class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex items-center gap-1">
+            <span id="headerLogoText">BOSSCODE</span>
+        </a>
+
+        <!-- Controls: Language Switcher & Dark Mode Toggle -->
+        <div class="flex items-center gap-3">
+            <!-- Language Selector -->
+            <div class="relative inline-block text-left">
+                <button id="langBtn" onclick="toggleLangDropdown()" class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm font-medium shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                    <span id="currentFlag" class="flex items-center">
+                        <img src="https://flagcdn.com/w40/th.png" alt="ภาษาไทย" class="w-5 h-4 object-cover rounded-sm">
+                    </span>
+                    <i class="fa-solid fa-chevron-down text-xs text-gray-400"></i>
+                </button>
+                <div id="langDropdown" class="hidden absolute right-0 mt-2 w-28 rounded-xl shadow-lg bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 z-50 overflow-hidden py-1">
+                    <button onclick="setLanguage('th')" class="w-full text-left px-4 py-2 text-sm flex items-center gap-2 hover:bg-gray-50 dark:hover:bg-gray-700 font-medium">
+                        <img src="https://flagcdn.com/w40/th.png" alt="" aria-hidden="true" class="w-5 h-4 object-cover rounded-sm"> ไทย
+                    </button>
+                    <button onclick="setLanguage('en')" class="w-full text-left px-4 py-2 text-sm flex items-center gap-2 hover:bg-gray-50 dark:hover:bg-gray-700 font-medium">
+                        <img src="https://flagcdn.com/w40/us.png" alt="" aria-hidden="true" class="w-5 h-4 object-cover rounded-sm"> English
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dark / Light Mode Button -->
+            <button id="themeToggle" onclick="toggleTheme()" class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition" title="Toggle Theme">
+                <i id="themeIcon" class="fa-regular fa-moon text-sm"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-2xl w-full mx-auto px-4 py-6 flex-grow">
+        
+        <!-- Profile Header Section -->
+        <section class="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-8 p-4 rounded-2xl bg-white dark:bg-gray-800/40 border border-gray-100 dark:border-gray-800/60 shadow-sm">
+            <!-- Profile Image -->
+            <div class="relative group flex-shrink-0">
+                <img src="Gemini_Generated_Image_n2ctuhn2ctuhn2ct.jpg" alt="รูปโปรไฟล์ BOSSCODE" class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl border-2 border-gray-200 dark:border-gray-700 object-cover shadow-inner transition hover:border-gray-400">
+            </div>
+
+            <!-- User Info -->
+            <div class="flex-grow text-center sm:text-left">
+                <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-1" id="userName">BOSSCODE</h1>
+                
+                <div class="flex items-center justify-center sm:justify-start gap-2 text-sm text-gray-600 dark:text-gray-300 mb-2">
+                    <i class="fa-solid fa-laptop-code text-gray-500"></i>
+                    <span font-medium id="userRole">Fullstack Developer</span>
+                </div>
+
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-1.5 flex items-start justify-center sm:justify-start gap-2">
+                    <span>💻</span>
+                    <span id="userBio">ผมอยากให้ทุกคนได้ใช้สิ่งที่ผมสร้างขึ้นมา</span>
+                </p>
+
+                <p class="text-sm text-gray-500 dark:text-gray-400 flex items-center justify-center sm:justify-start gap-2">
+                    <i class="fa-regular fa-envelope text-red-500"></i>
+                    <a href="mailto:woramet49def@gmail.com" class="hover:underline" id="userEmail">woramet49def@gmail.com</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 1: Contact / Work -->
+        <section class="mb-8">
+            <h2 class="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2" id="secWorkTitle">
+                ติดต่องาน
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <!-- LINE -->
+                <a href="https://line.me" target="_blank" class="card-hover flex items-center gap-3 p-3.5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-line flex items-center justify-center text-white text-xl shadow-sm">
+                        <i class="fa-brands fa-line"></i>
+                    </div>
+                    <span class="font-medium text-sm text-gray-800 dark:text-gray-200" id="btnLine">ติดต่องาน / ปรึกษา</span>
+                </a>
+
+                <!-- Email Link -->
+                <a href="mailto:woramet49def@gmail.com" class="card-hover flex items-center gap-3 p-3.5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-200 text-lg shadow-sm">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <span class="font-medium text-sm text-gray-800 dark:text-gray-200" id="btnEmail">ส่งอีเมลหาผม</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Social Media Links -->
+        <section class="mb-8">
+            <h2 class="text-base font-bold text-gray-900 dark:text-white mb-3" id="secSocialTitle">
+                ติดตามผมได้ที่นี่
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@Bossed-s1p" target="_blank" class="card-hover flex items-center gap-3 p-3.5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-youtube flex items-center justify-center text-white text-lg shadow-sm">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <span class="font-medium text-sm text-gray-800 dark:text-gray-200">YouTube</span>
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://facebook.com" target="_blank" class="card-hover flex items-center gap-3 p-3.5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-facebook flex items-center justify-center text-white text-lg shadow-sm">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </div>
+                    <span class="font-medium text-sm text-gray-800 dark:text-gray-200">Facebook</span>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/bosscode___/" target="_blank" class="card-hover flex items-center gap-3 p-3.5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl ig-bg flex items-center justify-center text-white text-xl shadow-sm">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <span class="font-medium text-sm text-gray-800 dark:text-gray-200">Instagram</span>
+                </a>
+
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@bossedd38?_r=1&_t=ZS-99q2ZDTbCGl" target="_blank" class="card-hover flex items-center gap-3 p-3.5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-black text-white dark:bg-gray-900 flex items-center justify-center text-lg shadow-sm">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <span class="font-medium text-sm text-gray-800 dark:text-gray-200">TikTok</span>
+                </a>
+            </div>
+
+            <!-- GitHub Full Width -->
+            <a href="https://github.com/kentoxdx" target="_blank" class="card-hover flex items-center justify-center gap-3 p-3.5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm w-full">
+                <div class="w-10 h-10 rounded-xl bg-github text-white flex items-center justify-center text-xl shadow-sm">
+                    <i class="fa-brands fa-github"></i>
+                </div>
+                <span class="font-semibold text-sm text-gray-800 dark:text-gray-200">GitHub</span>
+            </a>
+        </section>
+
+        <!-- SECTION 3: My Products -->
+        <section class="mb-8">
+            <h2 class="text-base font-bold text-gray-900 dark:text-white mb-3" id="secProductsTitle">
+                Web app/Landing page
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="min-h-[68px] rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm"></div>
+                <div class="min-h-[68px] rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm"></div>
+                <div class="min-h-[68px] rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm"></div>
+                <div class="min-h-[68px] rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-6 border-t border-gray-100 dark:border-gray-800 text-xs text-gray-400 dark:text-gray-500">
+        <p>© <span id="copyrightYear">2026</span> <span id="footerBrand">BOSSCODE</span></p>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 opacity-0 pointer-events-none transform translate-y-4 px-4 py-2.5 rounded-full bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-xs font-medium shadow-lg z-50 flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-green-400 dark:text-green-600 text-sm"></i>
+        <span id="toastMsg">แจ้งเตือน</span>
+    </div>
+
+    <script>
+        // Language Data Translations
+        const translations = {
+            th: {
+                workTitle: "ติดต่องาน",
+                btnLine: "ติดต่องาน / ปรึกษา",
+                btnEmail: "ส่งอีเมลหาผม",
+                socialTitle: "ติดตามผมได้ที่นี่",
+                productsTitle: "โปรดักส์ของผม",
+                btnShop: "ร้านค้าของผม",
+                btnCourse: "คอร์สเรียนของผม",
+                btnAiSkills: "Skills AI ตัดต่อวิดีโอ",
+                role: "Fullstack Developer",
+                bio: "ผมอยากให้ทุกคนได้ใช้สิ่งที่ผมสร้างขึ้นมา"
+            },
+            en: {
+                workTitle: "Work & Contact",
+                btnLine: "Contact / Inquiries",
+                btnEmail: "Send me an Email",
+                socialTitle: "Follow Me Here",
+                productsTitle: "My Products",
+                btnShop: "My Store",
+                btnCourse: "My Online Course",
+                btnAiSkills: "AI Video Editing Skills",
+                role: "Fullstack Developer",
+                bio: "I want everyone to be able to use what I have created."
+            }
+        };
+
+        let currentLang = 'th';
+
+        // Dark Mode Toggle Logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                themeIcon.className = 'fa-regular fa-moon text-sm';
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.className = 'fa-regular fa-sun text-sm';
+            }
+        }
+
+        // Initialize Theme from Preferences
+        (function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.getElementById('themeIcon');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                if (themeIcon) themeIcon.className = 'fa-regular fa-sun text-sm';
+            } else {
+                document.documentElement.classList.remove('dark');
+                if (themeIcon) themeIcon.className = 'fa-regular fa-moon text-sm';
+            }
+        })();
+
+        // Language Dropdown Control
+        function toggleLangDropdown() {
+            const dropdown = document.getElementById('langDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Close language dropdown on clicking outside
+        window.addEventListener('click', function(e) {
+            const langBtn = document.getElementById('langBtn');
+            const dropdown = document.getElementById('langDropdown');
+            if (langBtn && !langBtn.contains(e.target) && dropdown && !dropdown.contains(e.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+
+        // Set Active Language
+        function setLanguage(lang) {
+            currentLang = lang;
+            const dropdown = document.getElementById('langDropdown');
+            if(dropdown) dropdown.classList.add('hidden');
+
+            const currentFlag = document.getElementById('currentFlag');
+
+            if (lang === 'th') {
+                currentFlag.innerHTML = '<img src="https://flagcdn.com/w40/th.png" alt="ภาษาไทย" class="w-5 h-4 object-cover rounded-sm">';
+            } else {
+                currentFlag.innerHTML = '<img src="https://flagcdn.com/w40/us.png" alt="English" class="w-5 h-4 object-cover rounded-sm">';
+            }
+
+            // Apply translations to DOM
+            const t = translations[lang];
+            document.getElementById('secWorkTitle').innerText = t.workTitle;
+            document.getElementById('btnLine').innerText = t.btnLine;
+            document.getElementById('btnEmail').innerText = t.btnEmail;
+            document.getElementById('secSocialTitle').innerText = t.socialTitle;
+            document.getElementById('userRole').innerText = t.role;
+            document.getElementById('userBio').innerText = t.bio;
+        }
+
+        // Toast Popup Helper
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = message;
+
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
