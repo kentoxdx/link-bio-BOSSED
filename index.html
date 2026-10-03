@@ -17,7 +17,8 @@
                         youtube: '#FF0000',
                         tiktok: '#000000',
                         instagram: '#E4405F',
-                        github: '#24292E'
+                        github: '#24292E',
+                        f1red: '#E10600'
                     },
                     fontFamily: {
                         sans: ['Prompt', 'Inter', 'sans-serif'],
@@ -198,16 +199,36 @@
             </a>
         </section>
 
-        <!-- SECTION 3: My Products -->
+        <!-- SECTION 3: My Products / Web app / Landing page -->
         <section class="mb-8">
             <h2 class="text-base font-bold text-gray-900 dark:text-white mb-3" id="secProductsTitle">
                 Web app/Landing page
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div class="min-h-[68px] rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm"></div>
-                <div class="min-h-[68px] rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm"></div>
-                <div class="min-h-[68px] rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm"></div>
-                <div class="min-h-[68px] rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm"></div>
+                <!-- F1 GUIDE Web App Link -->
+                <a href="https://furmula-hkpt.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-hover flex items-center gap-3.5 p-3.5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/60 shadow-sm group">
+                    <div class="w-10 h-10 rounded-xl bg-f1red text-white flex items-center justify-center text-lg shadow-sm flex-shrink-0 transition-transform group-hover:scale-105">
+                        <i class="fa-solid fa-flag-checkered"></i>
+                    </div>
+                    <div class="flex flex-col min-w-0 flex-grow">
+                        <div class="flex items-center justify-between gap-1">
+                            <span class="font-semibold text-sm text-gray-900 dark:text-white truncate">F1 GUIDE</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-red-500 transition-colors"></i>
+                        </div>
+                        <span class="text-xs text-gray-500 dark:text-gray-400 truncate">Web Application</span>
+                    </div>
+                </a>
+
+                <!-- Placeholder Cards for Future Web Apps -->
+                <div class="min-h-[68px] rounded-2xl bg-white/50 dark:bg-gray-800/40 border border-dashed border-gray-200 dark:border-gray-700/50 flex items-center justify-center text-xs text-gray-400">
+                    <span>+ Coming Soon</span>
+                </div>
+                <div class="min-h-[68px] rounded-2xl bg-white/50 dark:bg-gray-800/40 border border-dashed border-gray-200 dark:border-gray-700/50 flex items-center justify-center text-xs text-gray-400">
+                    <span>+ Coming Soon</span>
+                </div>
+                <div class="min-h-[68px] rounded-2xl bg-white/50 dark:bg-gray-800/40 border border-dashed border-gray-200 dark:border-gray-700/50 flex items-center justify-center text-xs text-gray-400">
+                    <span>+ Coming Soon</span>
+                </div>
             </div>
         </section>
 
@@ -232,10 +253,7 @@
                 btnLine: "ติดต่องาน / ปรึกษา",
                 btnEmail: "ส่งอีเมลหาผม",
                 socialTitle: "ติดตามผมได้ที่นี่",
-                productsTitle: "โปรดักส์ของผม",
-                btnShop: "ร้านค้าของผม",
-                btnCourse: "คอร์สเรียนของผม",
-                btnAiSkills: "Skills AI ตัดต่อวิดีโอ",
+                productsTitle: "Web app/Landing page",
                 role: "Fullstack Developer",
                 bio: "ผมอยากให้ทุกคนได้ใช้สิ่งที่ผมสร้างขึ้นมา"
             },
@@ -244,10 +262,7 @@
                 btnLine: "Contact / Inquiries",
                 btnEmail: "Send me an Email",
                 socialTitle: "Follow Me Here",
-                productsTitle: "My Products",
-                btnShop: "My Store",
-                btnCourse: "My Online Course",
-                btnAiSkills: "AI Video Editing Skills",
+                productsTitle: "Web App / Landing Page",
                 role: "Fullstack Developer",
                 bio: "I want everyone to be able to use what I have created."
             }
@@ -319,6 +334,7 @@
             document.getElementById('btnLine').innerText = t.btnLine;
             document.getElementById('btnEmail').innerText = t.btnEmail;
             document.getElementById('secSocialTitle').innerText = t.socialTitle;
+            document.getElementById('secProductsTitle').innerText = t.productsTitle;
             document.getElementById('userRole').innerText = t.role;
             document.getElementById('userBio').innerText = t.bio;
         }
